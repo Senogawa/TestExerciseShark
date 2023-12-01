@@ -2,7 +2,8 @@ from dataclasses import dataclass
 
 @dataclass
 class TelegramData:
-    ...
+    api_id: str
+    api_hash: str
 
 
 
@@ -12,3 +13,4 @@ class DatabaseData:
     password: str
     database: str
     host: str
+    port: int
