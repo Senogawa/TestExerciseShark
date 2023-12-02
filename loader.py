@@ -1,6 +1,7 @@
 from configparser import ConfigParser
 from dataclasses_cnf import *
 from loguru import logger
+from pyrogram import Client
 
 logger.add("logs.log")
 
@@ -19,3 +20,5 @@ database_data =DatabaseData(
     config["DATABASE"]["host"],
     config["DATABASE"]["port"]
 )
+
+app = Client("my_account", api_id = telegram_data.api_id, api_hash = telegram_data.api_hash)
