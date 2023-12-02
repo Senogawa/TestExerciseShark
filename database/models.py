@@ -7,7 +7,7 @@ class Users(base):
     __tablename__ = "users"
 
     id = Column(Integer, primary_key = True)
-    user_id = Column(Integer, unique = True)
-    lmt = Column(Integer)
+    user_id = Column(String, unique = True)
+    lmt = Column(String)
     state = Column(String)
-    register_time = Column(Integer)
+    register_time = Column(String)

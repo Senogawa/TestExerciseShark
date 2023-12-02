@@ -1,21 +1,15 @@
 from sqlalchemy.ext.asyncio import AsyncSession, create_async_engine
 from sqlalchemy.orm import sessionmaker
-from loader import database_data
 from sqlalchemy import insert, select, update
 from database.models import Users
 import asyncio
-from loguru import logger
 from datetime import datetime
 import time
 
 
 class AsyncDatabase:
 
-    def __init__(self):
-        user = database_data.username
-        password = database_data.password
-        host = database_data.host
-        database =database_data.database
+    def __init__(self, user: str, password: str, host: str, database: str):
         DATABASE_URL = f"postgresql+asyncpg://{user}:{password}@{host}/{database}"
 
         self.engine = create_async_engine(DATABASE_URL)
@@ -24,8 +18,8 @@ class AsyncDatabase:
 
 
     
-    async def add_user(self, user_id: int, timestamp: int):
-        query = insert(Users).values(user_id = user_id, lmt = timestamp, state = "HL", register_time = int(datetime.utcnow().timestamp()))
+    async def add_user(self, user_id: str, timestamp: str):
+        query = insert(Users).values(user_id = user_id, lmt = timestamp, state = "HL", register_time = str(int(datetime.utcnow().timestamp())))
         async with self.async_session() as session:
             await session.execute(query)
             await session.commit()
@@ -38,23 +32,33 @@ class AsyncDatabase:
 
         return result.scalars().all()
 
-    async def get_today_users(self):
+    async def get_today_users(self) -> list:
         unix_now = int(datetime.utcnow().timestamp())
         today = time.strftime('%d', time.gmtime(unix_now))
 
         users = await self.get_users()
         users_added_today = list()
         for user in users:
-            if time.strftime("%d", time.gmtime(user.register_time)) == today:
+            if time.strftime("%d", time.gmtime(int(user.register_time))) == today:
                 users_added_today.append(user.user_id)
 
         return users_added_today
 
-    async def change_user_state(self, user_id: int, state: str):
-        query = update(Users).where(Users.user_id == user_id).values(state = state) 
+    async def change_user_state_and_lmt(self, user_id: str, state: str, lmt: str):
+        query = update(Users).where(Users.user_id == user_id).values(state = state, lmt = lmt) 
         async with self.async_session() as session:
             await session.execute(query)
             await session.commit()
+
+    async def check_user_in_db(self, user_id: str):
+        query = select(Users).where(Users.user_id == user_id)
+        async with self.async_session() as session:
+            result = await session.execute(query)
+
+        if len(result.scalars().all()):
+            return True
+        
+        return False
 
         
 
@@ -63,7 +67,9 @@ class AsyncDatabase:
 
 async def main():
     db = AsyncDatabase()
-    await db.change_user_state(4443434, "KS")
+    #await db.change_user_state(4443434, "KS")
+    res = await db.check_user_in_db(43443434)
+    print(res)
 
 if __name__ == "__main__":
     asyncio.run(main())

@@ -2,6 +2,8 @@ from configparser import ConfigParser
 from dataclasses_cnf import *
 from loguru import logger
 from pyrogram import Client
+from database.async_db import AsyncDatabase
+
 
 logger.add("logs.log")
 
@@ -22,3 +24,9 @@ database_data =DatabaseData(
 )
 
 app = Client("my_account", api_id = telegram_data.api_id, api_hash = telegram_data.api_hash)
+db = AsyncDatabase(
+    database_data.username,
+    database_data.password,
+    database_data.host,
+    database_data.database
+)
