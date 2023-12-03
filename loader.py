@@ -1,3 +1,7 @@
+"""
+Module for loading constants and structure classes
+"""
+
 from configparser import ConfigParser
 from dataclasses_cnf import *
 from loguru import logger
@@ -27,7 +31,7 @@ database_data =DatabaseData(
 class UnixTimes:
     min_10 = 60 * 10
     min_90 = 60 * 90
-    min_180 = 60 * 180
+    min_120 = 60 * 120
 
     def get_unix_now() -> int:
         return int(datetime.utcnow().timestamp())

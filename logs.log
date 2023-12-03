@@ -1,0 +1,17 @@
+2023-12-03 14:54:31.761 | INFO     | users_functions.send_notifications:send_users_notifications:46 - Отправлено приветственное сообщение. Пользователь: 599106983 Статус: HL
+2023-12-03 14:54:43.768 | INFO     | users_functions.send_notifications:send_users_notifications:62 - Отправлено сообщение с материалом. Пользователь 599106983 Статус: MT
+2023-12-03 14:54:54.441 | INFO     | users_functions.send_notifications:send_users_notifications:69 - Отправлено сообщение без триггера. Пользователь: 599106983 Статус: MM
+2023-12-03 14:55:07.684 | INFO     | handlers.users_handlers:stop_spamming:26 - Пользователь 599106983 переведен в статус SS (Stop spaming)
+2023-12-03 15:02:54.199 | INFO     | users_functions.send_notifications:send_users_notifications:40 - Отправлено приветственное сообщение. Пользователь: 1908291854 Статус: HL
+2023-12-03 15:03:07.176 | INFO     | users_functions.send_notifications:send_users_notifications:56 - Отправлено сообщение с материалом. Пользователь 1908291854 Статус: MT
+2023-12-03 15:03:17.763 | INFO     | users_functions.send_notifications:send_users_notifications:63 - Отправлено сообщение без триггера. Пользователь: 1908291854 Статус: MM
+2023-12-03 15:04:57.360 | INFO     | users_functions.send_notifications:check_chat_history:17 - Отправлено оканчивающее сообщение, пользователь переведен в статус SS. Пользователь: 1908291854 Статус: HL
+2023-12-03 15:06:20.824 | INFO     | users_functions.send_notifications:check_chat_history:17 - Отправлено оканчивающее сообщение, пользователь переведен в статус SS. Пользователь: 1908291854 Статус: HL
+2023-12-03 15:07:17.637 | INFO     | users_functions.send_notifications:send_users_notifications:40 - Отправлено приветственное сообщение. Пользователь: 1908291854 Статус: HL
+2023-12-03 15:07:30.340 | INFO     | users_functions.send_notifications:send_users_notifications:56 - Отправлено сообщение с материалом. Пользователь 1908291854 Статус: MT
+2023-12-03 15:07:40.771 | INFO     | users_functions.send_notifications:send_users_notifications:63 - Отправлено сообщение без триггера. Пользователь: 1908291854 Статус: MM
+2023-12-03 15:41:58.360 | INFO     | users_functions.send_notifications:check_chat_history:17 - Отправлено оканчивающее сообщение, пользователь переведен в статус SS. Пользователь: 599106983 Статус: HL
+2023-12-03 15:43:30.533 | INFO     | users_functions.send_notifications:send_users_notifications:40 - Отправлено приветственное сообщение. Пользователь: 599106983 Статус: HL
+2023-12-03 15:46:13.670 | INFO     | users_functions.send_notifications:check_chat_history:17 - Отправлено оканчивающее сообщение, пользователь переведен в статус SS. Пользователь: 599106983 Статус: MT
+2023-12-03 15:46:50.941 | INFO     | users_functions.send_notifications:check_chat_history:17 - Отправлено оканчивающее сообщение, пользователь переведен в статус SS. Пользователь: 599106983 Статус: HL
+2023-12-03 15:51:12.785 | INFO     | users_functions.send_notifications:check_chat_history:21 - Отправлено оканчивающее сообщение, пользователь переведен в статус SS. Пользователь: 599106983 Статус: HL

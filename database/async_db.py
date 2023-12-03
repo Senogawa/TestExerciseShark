@@ -9,16 +9,12 @@ import time
 
 
 class AsyncDatabase:
-
     def __init__(self, user: str, password: str, host: str, database: str):
         DATABASE_URL = f"postgresql+asyncpg://{user}:{password}@{host}/{database}"
 
         self.engine = create_async_engine(DATABASE_URL)
         self.async_session = sessionmaker(self.engine, class_= AsyncSession, expire_on_commit = False)
 
-
-
-    
     async def add_user(self, user_id: str, timestamp: str):
         query = insert(Users).values(user_id = user_id, lmt = timestamp, state = "HL", register_time = str(int(datetime.utcnow().timestamp())))
         async with self.async_session() as session:
