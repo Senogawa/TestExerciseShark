@@ -7,6 +7,7 @@ from datetime import datetime
 import time
 
 
+
 class AsyncDatabase:
 
     def __init__(self, user: str, password: str, host: str, database: str):
@@ -25,7 +26,7 @@ class AsyncDatabase:
             await session.commit()
 
 
-    async def get_users(self):
+    async def get_users(self) -> list:
         query = select(Users)
         async with self.async_session() as session:
             result = await session.execute(query)
