@@ -43,6 +43,8 @@ You need ***api_id*** and ***api_hash***
 
 ---
 Substitute them into conf_example and ***rename it to conf.ini***
+
+
 ![](./md_screens/confex.png)
 
 
